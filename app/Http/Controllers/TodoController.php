@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Todo;
 
 class TodoController extends Controller
 {
@@ -11,36 +12,12 @@ class TodoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    var $list = array(
-        array(
-            "name" => 'hoc lap trinh',
-            "info" => 'hoc lap trinh',
-            "createdAt" => 1569637443,
-            "updatedAt" => 1569637443
-        ),
-        array(
-            "name" => 'hoc HTML',
-            "info" => 'hoc HTML',
-            "createdAt" => 1569637443,
-            "updatedAt" => 1569637443
-        ),
-        array(
-            "name" => 'hoc CSS',
-            "info" => 'hoc CSS',
-            "createdAt" => 1569637443,
-            "updatedAt" => 1569637443
-        ),
-        array(
-            "name" => 'hoc nodejs',
-            "info" => 'hoc nodejs',
-            "createdAt" => 1569637443,
-            "updatedAt" => 1569637443
-        )
-    );
 
     public function index()
     {
-        return view('todo.index')->with('list', $this->list);
+        $todoObj = new Todo;
+        $list = $todoObj->index();
+        return view('todo.index')->with('list', $list);
     }
 
     /**
