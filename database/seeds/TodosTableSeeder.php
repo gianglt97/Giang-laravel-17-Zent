@@ -21,11 +21,12 @@ class TodosTableSeeder extends Seeder
         $faker = \Faker\Factory::create();
         for ($i = 0; $i < 200; $i++) {
             \DB::table('todos')->insert([
-                'user_id'=>$faker->numberBetween($min = 1000, $max = 900000000),  //tạo số bất kì từ 1000 đến 9000000000
+                'user_id'=>$faker->numberBetween(1, 201),
                 'title'  => $faker->text(20),
                 'content' => $faker->text(200),
-                'created_at' => date('Y-m-d H:i:s', time()),
-                'updated_at' => date('Y-m-d H:i:s', time())
+                'status'=>1,
+                'created_at' => \Carbon\Carbon::now()->format('Y-m-d H:i:s'),
+                'updated_at' => \Carbon\Carbon::now()->format('Y-m-d H:i:s')
             ]);
         }
     }

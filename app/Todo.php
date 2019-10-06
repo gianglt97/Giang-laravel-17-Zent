@@ -9,20 +9,22 @@ class Todo extends Model
     protected $table = 'todos';
 
     public function index() {
-        return Todo::get();
+        // $list = DB::table('todos')->get();
+        // dd($list);
+        // return $list;
+        // return Todo::get();
+        return Todo::latest()->get();
         // return view('todo.index')->with('list', $list);
     }
 
-    public function show($id)
+    public function findById($id)
     {
-        $item = Todo::find($id);
-        return view('todo.show')->with('item', $item);
+        return Todo::find($id);
     }
 
-    // public function show($id)
+    // public function updateById($id)
     // {
-    //     $item = Todo::where('id', $id)->first();
-    //     return view('todo.show')->with('item', $item);
+
     // }
 
 }

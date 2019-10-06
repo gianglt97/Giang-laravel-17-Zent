@@ -22,11 +22,13 @@ class UsersTableSeeder extends Seeder
          $faker = \Faker\Factory::create();
         for ($i = 0; $i < 200; $i++) {
             DB::table('users')->insert([
+                'id' => $faker->numberBetween(1, 201),
                 'name'  => $faker->name,
                 'email' => $faker->email,
                 'password' => bcrypt($faker->password(6)),
-                'created_at' => date('Y-m-d H:i:s', time()),
-                'updated_at' => date('Y-m-d H:i:s', time())
+                'status' => 0,
+                'created_at' => \Carbon\Carbon::now()->format('Y-m-d H:i:s'),
+                'updated_at' => \Carbon\Carbon::now()->format('Y-m-d H:i:s')
             ]);
         }
     }

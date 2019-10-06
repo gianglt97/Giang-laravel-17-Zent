@@ -18,6 +18,7 @@ class CreateTodosTable extends Migration
             $table->BigInteger('user_id');
             $table->string('title');
             $table->text('content');
+            $table->tinyInteger('status');
             $table->dateTimeTz('created_at');
             $table->dateTimeTz('updated_at');
 //mình để user_id là dạng số

@@ -8,13 +8,20 @@
         </div>
         <div class="form-group">
             <label class="control-label" for="todo">Todo:</label>
-            <input name="name" type="text" class="form-control" id="name" placeholder="Enter todo">
+            <input name="title" type="text" class="form-control" id="title" placeholder="Enter todo">
         </div>
         <div class="form-group">
             <label class="control-label" for="todo">Mô tả:</label>
-            <textarea name="info" id="info" class="form-control"></textarea>
+            <textarea name="content" id="content" class="form-control"></textarea>
         </div>
-
+        <div class="form-group">
+            <label class="control-label" for="todo">Trạng thái:</label>
+                <select name="status" class="form-control">
+                    <option value="0">Chưa làm</option>
+                    <option value="1">Đang làm</option>
+                    <option value="2">Đã làm</option>
+                </select>
+        </div>
 
         <div class="form-group">
             <div class="">

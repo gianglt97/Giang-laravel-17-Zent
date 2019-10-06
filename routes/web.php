@@ -22,9 +22,9 @@ Route::get('/hello', function () {
 Route::get('/hello2', function () {
     return 'Hello2';
 });
-Route::get('/users', function () {
-    return view('userList');
-});
+// Route::get('/users', function () {
+//     return view('userList');
+// });
 
 //dieu huong tu form1 => form
 //Route::redirect('/form1', 'form');
@@ -39,14 +39,14 @@ Route::post('/form', function () {
     echo "vao form";
 })->name("post.form");
 
-Route::get('user/{id}/{user}', function ($id = null) {
-    if ($id == null) {
-        return 'Users';
-    } else {
-        return 'User ' . $id;
-    }
+// Route::get('user/{id}/{user}', function ($id = null) {
+//     if ($id == null) {
+//         return 'Users';
+//     } else {
+//         return 'User ' . $id;
+//     }
 
-})->name('');
+// })->name('');
 
 Route::get('/user/{id}/post/{slug}-{post}', function ($idabc, $slugfv, $idpost) {
     return "This is post $slugfv about $idpost of user $idabc";
@@ -224,3 +224,5 @@ Route::group([
 });
 
 Route::resource('todos', 'TodoController');
+
+Route::resource('users', 'UserController');
