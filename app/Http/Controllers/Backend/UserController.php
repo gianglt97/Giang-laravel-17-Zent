@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\User;
 
 class UserController extends Controller
 {
@@ -14,7 +15,10 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('backend.users.index');
+        $users = User::get();
+        // $users = User::paginate(15);   // hiện trang
+        $users = User::simplePaginate(15);  // chỉ hiện previos and next
+        return view('backend.users.index')->with('users', $users);
     }
 
     /**
