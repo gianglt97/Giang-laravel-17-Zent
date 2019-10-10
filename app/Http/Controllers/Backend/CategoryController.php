@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use App\Models\Category;
 class CategoryController extends Controller
 {
     /**
@@ -14,7 +14,9 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return view('backend.categories.index');
+        $categories = Category::get();
+        $categories = Category::paginate(3);
+        return view('backend.categories.index')->with('categories', $categories);
     }
 
     /**
