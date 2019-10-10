@@ -16,7 +16,7 @@ class UserController extends Controller
     public function index()
     {
         $users = User::get();
-        $users = User::paginate(15);   // hiện trang
+        $users = User::paginate(10);   // hiện trang
         // $users = User::simplePaginate(15);  // chỉ hiện previos and next
         return view('backend.users.index')->with('users', $users);
     }
